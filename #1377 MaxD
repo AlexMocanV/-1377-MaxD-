@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+ifstream fin("maxd.in");
+ofstream fout("maxd.out");
+
+
+int main()
+{
+    int n,mini,nrdiv=0,contor=0,nrdivm=-1,a,b,i,d,nr=0,c;
+    fin>>a>>b;
+    for(i=a;i<=b;i++)
+    {
+        nrdiv=0;
+        if(i%2==0)
+        {
+
+        for(d=1;d*d<i;d++)
+        {
+            if(i%d==0)
+            {
+                nrdiv+=2;
+            }
+        }
+        if(d*d==i)
+        {
+            nrdiv++;
+        }
+      
+        
+        if(nrdiv>nrdivm)
+        {
+            nrdivm=nrdiv;
+            mini=i;
+            contor=1;
+        }
+        else if(nrdiv==nrdivm)
+            {
+                contor++;
+            }
+        }
+        
+    }
+    fout<<mini<<" "<<nrdivm<<" "<<contor;
+    
+    return 0;
+}
